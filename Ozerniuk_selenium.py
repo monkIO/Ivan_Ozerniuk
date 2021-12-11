@@ -5,7 +5,7 @@ from selenium.webdriver.chrome.service import Service
 
 
 # getting driver
-s = Service('/Users/i.ozerniuk/downloads/chromedriver')
+s = Service('/Users/i.ozerniuk/downloads/chromedriver') # path to your driver
 browser = webdriver.Chrome(service=s)
 
 # logging in
