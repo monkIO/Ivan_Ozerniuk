@@ -42,9 +42,25 @@ if is_found:
     row_to_delete.find_element(By.TAG_NAME, 'input').click()
     browser.find_element(By.ID, 'btnDelete').click()
     browser.find_element(By.ID, 'dialogDeleteBtn').click()
+    
+    # cheking if result is deleted
+    browser.get('https://opensource-demo.orangehrmlive.com/index.php/admin/viewPayGrades')
+    rows_list = browser.find_element(By.ID, 'resultTable').find_element(By.TAG_NAME, 'tbody').find_elements(By.TAG_NAME, 'tr')
+    is_found = False
+    row_to_delete = None
+    for row in rows_list:
+        cols_list = list(map(lambda x: x.text, row.find_elements(By.TAG_NAME, 'td')))  
+        if cols_list[1]=='Grade_RandomName' and cols_list[2]=='Ukraine Hryvnia':
+            is_found = True
+            row_to_delete = row
+            break
+
+    if is_found:
+        print('Something went wrong, created Grade was not deleted!')
+    else:
+        print('The grade was successfully deleted!')
 else:
     print("Added element NOT FOUND on the page!")
-
 
 browser.close()
 
