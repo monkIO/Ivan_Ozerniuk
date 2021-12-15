@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[22]:
-
-
 import requests
 import json
 
@@ -22,10 +16,6 @@ if not response_upload.ok:
     raise Exception(f"Could not upload a file. Got {response_upload.status_code} error.")
 else:
     print("Successfully uploaded!")
-    
-
-
-# In[28]:
 
 
 #Get file metadata request
@@ -45,11 +35,7 @@ if not response_gfm.ok:
 else:
     print("Successfully got file metadata!")
     
-
-
-# In[25]:
-
-
+    
 #Delete request
 url_delete = "https://api.dropboxapi.com/2/files/delete_v2"
 payload_delete = json.dumps({
