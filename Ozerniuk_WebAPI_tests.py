@@ -1,5 +1,6 @@
 import requests
 import json
+credentials = '8Yohtu637QUAAAAAAAAAAQTrs_xEgiUMdxcDetdP6HxpDcNLKje3RYoBtuoW_8d1'
 
 #Upload request
 url_upload = "https://content.dropboxapi.com/2/files/upload"
@@ -7,7 +8,7 @@ payload_upload = "Ozerniuk Ivan KA-91 TEST"
 headers_upload = {
   'Dropbox-API-Arg': '{"path": "/Matrices.txt","mode": "add","autorename": true,"mute": false,"strict_conflict": false}',
   'Content-Type': 'application/octet-stream',
-  'Authorization': 'Bearer 8Yohtu637QUAAAAAAAAAAQTrs_xEgiUMdxcDetdP6HxpDcNLKje3RYoBtuoW_8d1'
+  'Authorization': f'Bearer {credentials}'
 }
 
 response_upload = requests.request("POST", url_upload, headers=headers_upload, data=payload_upload)
@@ -25,7 +26,7 @@ payload_gfm = json.dumps({
 })
 headers_gfm = {
   'Content-Type': 'application/json',
-  'Authorization': 'Bearer 8Yohtu637QUAAAAAAAAAAQTrs_xEgiUMdxcDetdP6HxpDcNLKje3RYoBtuoW_8d1'
+  'Authorization': f'Bearer {credentials}'
 }
 
 response_gfm = requests.request("POST", url_gfm, headers=headers_gfm, data=payload_gfm)
@@ -43,7 +44,7 @@ payload_delete = json.dumps({
 })
 headers_delete = {
   'Content-Type': 'application/json',
-  'Authorization': 'Bearer 8Yohtu637QUAAAAAAAAAAQTrs_xEgiUMdxcDetdP6HxpDcNLKje3RYoBtuoW_8d1'
+  'Authorization': f'Bearer {credentials}'
 }
 
 response_delete = requests.request("POST", url_delete, headers=headers_delete, data=payload_delete)
